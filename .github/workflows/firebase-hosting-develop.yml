@@ -18,7 +18,10 @@ jobs:
 
       - name: Create account private key file
         run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > key.json
-      
+
+      - name: cat key.json
+        run: cat key.json
+
       - name: Export file
         run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
 
