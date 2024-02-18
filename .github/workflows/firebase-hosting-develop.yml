@@ -16,7 +16,9 @@ jobs:
       - name: check secret
         run: |
          echo ${{ secrets.FIREBASE_TOKEN }} &&
-         echo "${{ secrets.FIREBASE_TOKEN }}"
+         echo "${{ secrets.FIREBASE_TOKEN }}" &&
+         echo $FIREBASE_TOKEN &&
+         echo "$FIREBASE_TOKEN"
       # - name: Set up Node.js
       #   uses: actions/setup-node@v2
       #   with:
