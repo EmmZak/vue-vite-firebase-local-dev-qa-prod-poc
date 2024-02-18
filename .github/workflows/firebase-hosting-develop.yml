@@ -24,5 +24,8 @@ jobs:
       - name: Build
         run: npm run build
       
-      - name: show
-        run: ls
+      - name: Auth to Firebase
+        run: firebase login:ci --token ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy to Firebase hosting
+        run: firebase deploy -P dev 
