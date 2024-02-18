@@ -25,10 +25,7 @@ jobs:
       - name: Export file
         run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
 
-      - name: cat GOOGLE_APPLICATION_CREDENTIALS
-        run: cat $GOOGLE_APPLICATION_CREDENTIALS
-      
-      - name: echo GOOGLE_APPLICATION_CREDENTIALS
+      - name: Check if GOOGLE_APPLICATION_CREDENTIALS points to key.json
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
 
       - name: Set up Node.js
