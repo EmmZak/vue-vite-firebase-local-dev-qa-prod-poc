@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import { db } from "./firebase/firebaseConfig"
+import { doc, getDoc, collection } from "firebase/firestore";
+
+
+const docRef = doc(db, "users", "test");
+getDoc(docRef).then((document: any) => console.log("document", document.data()))
+
 </script>
 
 <template>

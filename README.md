@@ -1,6 +1,40 @@
+# Envs
 
+## Local 
 
-### Developement
+for local dev, localhost
+
+## dev
+
+vue-vite-firebase-poc-dev
+
+## qa
+
+vue-vite-firebase-poc-qa
+
+## prod
+
+vue-vite-firebase-poc-prod
+
+# CI
+
+## Generate Firebase account token
+```bash
+firebase login:ci
+```
+To be added to GitHub secrets
+
+## Deploy
+
+### Envs
+
+Envs are defined in .firebaserc 
+
+```bash
+firebase deploy -P ( dev | qa | prod ) 
+```
+
+# Developement
 
 ## Docker
 

@@ -7,6 +7,10 @@ WORKDIR /app
 COPY ./package.json .
 #COPY ./package-lock.json .
 
+VOLUME /app/node_modules
+
+COPY . .
+
 RUN npm install
 
 
