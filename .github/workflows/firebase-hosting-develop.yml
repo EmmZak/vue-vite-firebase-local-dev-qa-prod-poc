@@ -12,7 +12,16 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      - name: show
+        run: echo ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+
+      - name: Create account private key file
+        run: echo ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }} > key.json
       
+      - name: Export file
+        run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -26,12 +35,6 @@ jobs:
 
       - name: Install Firebase Tools
         run: npm install -g firebase-tools
-      
-      - name: Create account private key file
-        run: echo ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }} > key.json
-      
-      - name: Export file
-        run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
 
       - name: Deploy to Firebase hosting
         run: firebase deploy -P dev 
