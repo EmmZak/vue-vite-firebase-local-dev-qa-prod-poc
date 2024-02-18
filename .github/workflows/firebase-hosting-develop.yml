@@ -15,33 +15,21 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      #- name: show
-      #  run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
 
       - name: Prepare Google Application Credentials
         shell: bash
         run: |
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > "google-application-credentials.json"
 
-      #- name: Create account private key file
-      #  run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > key.json
-
-      #- name: cat key.json
-      #  run: cat key.json
-
-      #- name: Export file
-      #  run: echo "export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json" >> $GITHUB_ENV
-
-      - name: Check if GOOGLE_APPLICATION_CREDENTIALS points to key.json
+      - name: Check if GOOGLE_APPLICATION_CREDENTIALS points
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
 
       - name: cat GOOGLE_APPLICATION_CREDENTIALS 
         run: cat $GOOGLE_APPLICATION_CREDENTIALS
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 20
       
       - name: Install Dependencies
         run: npm install

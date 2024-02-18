@@ -26,7 +26,7 @@ To be added to GitHub secrets
 
 ## Generate a new private key
 
-Console -> Project -> Project settings -> Service accounts -> Generate
+check here https://medium.com/@jankir/how-to-deploy-firebase-functions-in-ci-using-a-service-account-key-with-801be78251cf
 
 To be added to GitHub secrets as GOOGLE_APPLICATION_CREDENTIALS
 
