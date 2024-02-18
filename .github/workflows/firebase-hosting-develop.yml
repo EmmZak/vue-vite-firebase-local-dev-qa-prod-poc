@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: google-application-credentials.json
 
     steps:
       - name: Checkout Repository
@@ -16,17 +18,25 @@ jobs:
       #- name: show
       #  run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
 
-      - name: Create account private key file
-        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > key.json
+      - name: Prepare Google Application Credentials
+        shell: bash
+        run: |
+          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > "google-application-credentials.json"
 
-      - name: cat key.json
-        run: cat key.json
+      #- name: Create account private key file
+      #  run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > key.json
 
-      - name: Export file
-        run: echo "export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json" >> $GITHUB_ENV
+      #- name: cat key.json
+      #  run: cat key.json
+
+      #- name: Export file
+      #  run: echo "export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json" >> $GITHUB_ENV
 
       - name: Check if GOOGLE_APPLICATION_CREDENTIALS points to key.json
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
+
+      - name: cat GOOGLE_APPLICATION_CREDENTIALS 
+        run: cat $GOOGLE_APPLICATION_CREDENTIALS
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -43,4 +53,4 @@ jobs:
         run: npm install -g firebase-tools
 
       - name: Deploy to Firebase hosting
-        run: firebase deploy -P dev 
+        run: firebase deploy -P dev --non-interactive
