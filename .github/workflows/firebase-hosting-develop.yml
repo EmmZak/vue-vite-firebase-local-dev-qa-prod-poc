@@ -31,7 +31,7 @@ jobs:
         run: echo ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }} > key.json
       
       - name: Export file
-          export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
+        run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
 
       - name: Deploy to Firebase hosting
         run: firebase deploy -P dev 
