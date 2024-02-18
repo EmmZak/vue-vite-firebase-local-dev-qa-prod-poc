@@ -22,7 +22,7 @@ jobs:
       - name: Export file
         run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
 
-      name: cat GOOGLE_APPLICATION_CREDENTIALS
+      - name: cat GOOGLE_APPLICATION_CREDENTIALS
         run: cat GOOGLE_APPLICATION_CREDENTIALS
 
       - name: Set up Node.js
