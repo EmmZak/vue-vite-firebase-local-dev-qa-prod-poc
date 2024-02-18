@@ -23,7 +23,7 @@ jobs:
         run: cat key.json
 
       - name: Export file
-        run: export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
+        run: echo "export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json" >> $GITHUB_ENV
 
       - name: Check if GOOGLE_APPLICATION_CREDENTIALS points to key.json
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
