@@ -43,7 +43,7 @@ jobs:
           export GOOGLE_APPLICATION_CREDENTIALS=google-application-credentials.json
           echo $GOOGLE_APPLICATION_CREDENTIALS
           cat $GOOGLE_APPLICATION_CREDENTIALS
-          firebase use dev 
+          firebase use dev --debug
       
       #firebase deploy -P dev --non-interactive
 
