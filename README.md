@@ -18,11 +18,24 @@ vue-vite-firebase-poc-prod
 
 # CI
 
-## Generate Firebase account token
+## Generate Firebase account token (deprecated)
 ```bash
 firebase login:ci
 ```
 To be added to GitHub secrets
+
+## Generate a new private key
+
+check here https://medium.com/@jankir/how-to-deploy-firebase-functions-in-ci-using-a-service-account-key-with-801be78251cf
+
+Save json key generated from gcloud console, and run this to get base64 string
+
+```bash
+base64 < [file-path.json] > base64-key-ci # Mac
+base64 --wrap=0 < [file-path.json] > base64-key-ci # Linux
+```
+
+To be added to GitHub secrets as GOOGLE_APPLICATION_CREDENTIALS
 
 ## Deploy
 
