@@ -41,6 +41,7 @@ jobs:
         run: |
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > "google-application-credentials.json"
           export GOOGLE_APPLICATION_CREDENTIALS=google-application-credentials.json
+          firebase login
           firebase use dev 
           firebase deploy -P dev --non-interactive
 
