@@ -40,7 +40,6 @@ jobs:
         shell: bash
         run: |
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > "google-application-credentials.json"
-          export GOOGLE_APPLICATION_CREDENTIALS=google-application-credentials.json
           echo $GOOGLE_APPLICATION_CREDENTIALS
           cat $GOOGLE_APPLICATION_CREDENTIALS
           firebase use dev --debug
