@@ -33,12 +33,14 @@ jobs:
         run: npm run build
 
       - name: Install Firebase Tools
-        run: npm install -g firebase-tools
+        #run: npm install -g firebase-tools
+        run: curl -sL https://firebase.tools | bash
       
       - name: Deploy to Firebase hosting
         shell: bash
         run: |
           echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > "google-application-credentials.json"
+          export GOOGLE_APPLICATION_CREDENTIALS=google-application-credentials.json
           firebase use dev 
           firebase deploy -P dev --non-interactive
 
