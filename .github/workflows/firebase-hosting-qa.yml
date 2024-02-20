@@ -39,5 +39,5 @@ jobs:
       - name: Deploy to Firebase hosting
         shell: bash
         run: |
-          firebase use dev
-          firebase deploy -P dev --non-interactive
+          firebase use qa
+          firebase deploy -P qa --non-interactive
