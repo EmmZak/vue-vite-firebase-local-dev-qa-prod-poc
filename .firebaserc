@@ -2,6 +2,7 @@
   "projects": {
     "dev": "vue-vite-firebase-poc-dev",
     "qa": "vue-vite-firebase-poc-qa",
-    "prod": "vue-vite-firebase-poc-prod"
+    "prod": "vue-vite-firebase-poc-prod",
+    "default": "vue-vite-firebase-poc-dev"
   }
 }

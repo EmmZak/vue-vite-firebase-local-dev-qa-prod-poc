@@ -13,7 +13,7 @@ src/config/keys
 node_modules
 dist
 dist-ssr
-*.local
+#*.local
 
 # Editor directories and files
 .vscode/*
