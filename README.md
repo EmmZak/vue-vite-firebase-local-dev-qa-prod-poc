@@ -2,7 +2,12 @@
 
 ## Local 
 
-for local dev, localhost
+for local dev, localhost inside Docker containers
+
+* Vue app
+* Firebase Emulators (to do)
+
+(Dockerfile with node and java (ubuntu last ?))
 
 ## dev
 
